@@ -1,22 +1,26 @@
-import React from 'react'
-import ItemList from './ItemList'
+import { useState, useEffect } from 'react'
+import { pedirDatos } from '../../utils/utils'
+import ItemList from '../Itemlist/ItemList'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = () => {
+    
+    const [productos, setProductos] = useState([])
+    const {categoryId} = useParams()
+    useEffect(()=> {
+        pedirDatos()
+        .then((data) =>{
+            const items = categoryId ? data.filter(prod => prod.category === categoryId) : data
+            setProductos(items)
+        })
+    }, [categoryId])
+
     return (
-    <div className="bg-yellow-200 m-0 p-0 min-h-screen">
-        <section className="min-h-screen py-8 px-8">
-            <h2 className="bg-green-600 text-center">Productos</h2>
-            <ul className="flex flex-wrap justify-around">
-                <ItemList>Producto 1</ItemList>
-                <ItemList>Producto 2</ItemList>
-                <ItemList>Producto 3</ItemList>
-                <ItemList>Producto 4</ItemList>
-                <ItemList>Producto 5</ItemList>
-                <ItemList>Producto 6</ItemList>
-                <ItemList>Producto 7</ItemList>
-            </ul>
-        </section>
-    </div>
-    );
-};
-export default ItemListContainer;
+            <>
+            <div>
+                <ItemList productos={productos}/>
+                </div>
+            </>
+    )
+}
+export default ItemListContainer
