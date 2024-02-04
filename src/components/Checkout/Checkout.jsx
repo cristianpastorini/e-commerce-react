@@ -38,8 +38,8 @@ const Checkout = () =>{
     if (orderId) {
         return(
         <div>
-            <h2 className="text-4xl ">Gracias por tu compra!</h2>
-            <p>Tu codigo de orden es: {orderId}</p>
+            <h2 className="text-blue-600 text-4xl font-bold">Gracias por tu compra!</h2>
+            <p className="text-blue-600 text-xl font-semibold">Tu codigo de orden es: {orderId}</p>
         </div>
         )
     }

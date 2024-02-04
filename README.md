@@ -1,6 +1,20 @@
-# React + Vite
+# React + tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta aplicación web que permite a los usuarios buscar y encontrar bebidas de todo tipo.
+
+## Descripción
+
+La aplicación tiene las siguientes características:
+
+* Búsqueda por tipo de bebida.
+* Filtrado por bebidas.
+* Guardar bebidas favoritas.
+* Compartir con amigos.
+
+La aplicación está construida con las siguientes tecnologías:
+
+* ReactJS
+* NodeJS
 
 Currently, two official plugins are available:
 
